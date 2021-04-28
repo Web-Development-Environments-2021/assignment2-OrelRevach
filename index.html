@@ -1,21 +1,279 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="./jquery-3.4.1.slim.min.js"></script>
-		<script type="text/javascript" src="./app.js"></script>
-	</head>
 
-	<body>
-		<div id="score">
-			<label for="lblScore">SCORE:</label>
-			<input id="lblScore" type="text" />
+<head>
+	<!--check the links (model dialog- about)-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>	
+	<!--good-->
+	<script src="javascript/jquery-3.4.1.slim.min.js"></script>
+	<script type="text/javascript" src="javascript/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<!--icons-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<header width:25%;>
+		<a onclick="homePage()"><p ><img src="images/Pacman.png" width="250px"></p></a>
+	</header>
+	<div id="menu">
+		<li><a onclick="homePage()">Welcome</a></li>
+		<li><a onclick="register()">Register</a></li>
+		<li><a onclick="login()">Login</a></li>
+		<li><a type="button" data-toggle="modal" data-target="#aboutDiv">ABOUT</a></li>
+	</div>
+	<br>
+
+	<div id="content" class="content">
+
+		<div id="homePage">
+			
+			<button1 id="loginButton" onclick="login()"> <h3>Login</h3></button1>
+			<button1 id="registerButton" onclick="register()"> <h3>Register</h3></button1>
+			<br />
+			<br />
+			<br />
+			<br />
+
+			
 		</div>
-		<div id="time">
-			<label for="lblTime">TIME:</label>
-			<input id="lblTime" type="text" />
+
+		<div id="registerPage">
+			<form class="cmxform" id="signUpForm" method="get" action="">
+				<fieldset>
+					<legend><b>Registration:</b></legend>
+					<div class="center ">
+						<div class="row align-middle">
+							<label for="fname" class="text alien-center"  style="padding :5px" >FirstName</label>
+							<input id="fname" name="firstname" type="text" class="text-center" style="margin-right: 100px">
+						</div>
+						<div class="row align-middle" >
+							<label for="lastname" class="text alien-center"  style="padding :5px">Lastname</label>
+							<input id="lastname" name="lastname" type="text" style="margin-right: 100px" class="text-center">
+						</div>
+						<div class="row align-middle">
+							<label for="username" class="text alien-center"  style="padding :5px">Username</label>
+							<input id="username" name="username" type="text" style="margin-right: 100px" class="text-center">
+						</div>
+						<div class="row align-middle">
+							<label for="password"class="text alien-center"  style="padding :5px">Password</label>
+							<input id="password" name="password" type="password"style="margin-right: 100px" class="text-center">
+						</div>
+						<div class="row align-middle">
+							<label for="confirm_password" class="text alien-center"  style="padding :5px">Confirm password</label>
+							<input id="confirm_password" name="confirm_password" type="password" style="margin-right: 160px" class="text-center">
+						</div>
+						<div class="row align-middle">
+							<label for="email" class="text alien-center"  style="padding :5px">Email</label>
+							<input id="email" name="email" type="email"style="margin-right: 70px" class="text-center">
+						</div>
+						<div class="row align-middle">
+							<label for="birth" class="text alien-center"  style="padding :5px">Day Of Birth</label>
+							<input type="date" name="birth" id="birth" placeholder="Enter your date of birth"
+								style="margin-right: 110px">
+						</div>
+					</div>
+					<br>
+					<p>
+						<button class="submit" type="submit" value="Submit">Submit</button>
+					</p>
+				</fieldset>
+			</form>
+		</div>
+
+		<div id="loginPage">
+			<div id="card" class="card card-container login">
+				<legend><b>Login:</b></legend>
+				<p>
+					<input type="text" id="checkUserName" class="form text-center" placeholder="Username" required autofocus >
+				</p>
+				<p>
+					<input type="password" id="checkUserPassword" class="form text-center" placeholder="Password" required >
+				</p>
+			</div>
+			<button onclick="loginButton()" type="submit">Login</button>
+		</div>
+	</div>
+
+	<div id="aboutDiv" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" id="closeModel" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">About</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						<div style="text-align: center;">
+                    <p>This game has been programed by Orel Revach and Saja Abu Krenat.</p>
+                    <p>The jQuery pulgins we used in this program are: jquery validation</p>
+                    <p>In this program we used the given template of the packman game and jquery validation template
+                    </p>
+                    <p>the difficulties we faced while working on this project were: </p>
+                    <p> * understanding jquary validation</p>
+                    <p> * working simultaneously on one common html/css/js file</p>
+                    <p> * make the monsters follow the packman</p>
+						
+					</p>
+				</div>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="settingPage">
+		<form class="cmxform" id="setting">
+			<fieldset>
+				<legend><b>Settings:</b></legend>
+				<div class="center">
+					<div class="row">
+						<label for="upKey" class="col-sm-4">Up Key:</label>
+						<input type="text"   size="20" id="up" name="up" placeholder="Select up key" autocomplete="off"
+							class="col-sm-4" >
+					</div>
+					<div class="row">
+						<label for="downKey" class="col-sm-4">Down Key:</label>
+						<input type="text" size="20" id="down" name="down" placeholder="Select down key"
+							autocomplete="off" class="col-sm-4">
+					</div>
+					<div class="row">
+						<label for="rightKey" class="col-sm-4">Right Key:</label>
+						<input type="text" size="20" id="right" name="right" placeholder="Select right key"
+							autocomplete="off" class="col-sm-4">
+					</div>
+					<div class="row">
+						<label for="leftKey" class="col-sm-4">Left Key:</label>
+						<input type="text" size="20" id="left" name="left" placeholder="Select left key"
+							autocomplete="off" class="col-sm-4" >
+					</div>
+					<div class="row">
+						<label class="col-sm-4">Number of balls:</label>
+						<input type="number" id="numberOfBalls" min="50" max="90" value="50" class="col-sm-4">
+					</div>
+					<div class="row">
+						<label class="col-sm-4">Ball of 5 point:</label>
+						<input type="color" id="Ball5" name="Ball5" value="#c7ffd8" class="col-sm-4">
+					</div>
+					<div class="row">
+						<label class="col-sm-4">Ball of 15 point:</label>
+						<input type="color" id="Ball15" name="Ball15" value="#98ded9" class="col-sm-4">
+					</div>
+					<div class="row">
+						<label class="col-sm-4">Ball of 25 point:</label>
+						<input type="color" id="Ball25" name="Ball25" value="#161d6f" class="col-sm-4">
+					</div>
+					<div class="row">
+						<label class="col-sm-4">Game time:</label>
+						<input type="number" id="gameTime" min="60" value="60" placeholder="Minimum 60 seconds"
+							class="col-sm-4">
+					</div>
+					<div class="row">
+						<label class="col-sm-4">Number of monsters:</label>
+						<input type="number" id="numberOfMonsters" min="1" max="4" value="1" placeholder="1"
+							class="col-sm-4">
+					</div>
+				</div>
+				<br>
+				<button onclick="randomSettings()">Random</button>
+				<button onclick="setDefaultsMoveKeys()" class="submit" type="submit" value="Submit">play game</button>
+			</fieldset>
+		</form>
+
+	</div>
+
+	<div id="canves">
+		<div id="left" class="left">
+			<p id="welcome_user" class="welcome_user"></p>
+
+			<div id="setting_board" class="setting_board">
+
+			
+				<p class="welcome_user"><u>Setting :</u></p>
+				<div class="row" id="upSetting">
+					<label for="lblUp" class="col-sm-4">UP:</label>
+					<input id="lblUp" value="" type="text" class="without"class="col-sm-4" />
+				</div>
+				<div class="row" id="downSetting">
+					<label for="lblDown" class="col-sm-4">DOWN:</label>
+					<input id="lblDown" value="" type="text" class="without" class="col-sm-4" />
+				</div>
+				<div class="row" id="rightSetting">
+					<label for="lblRight" class="col-sm-4">RIGHT:</label>
+					<input id="lblRight" value="" type="text" class="without" class="col-sm-4" />
+				</div>
+				<div class="row" id="leftSetting">
+					<label for="lblLeft" class="col-sm-4">LEFT:</label>
+					<input id="lblLeft" value="" type="text"class="without" class="col-sm-4" />
+				</div>
+				<div class="row" id="ballSetting">
+					<label for="lblBalls" class="col-sm-4">BALLS:</label>
+					<input id="lblBalls" type="text" class="without" class="col-sm-4" />
+				</div>
+				<div class="row" id="monstersSetting">
+					<label for="lblMonsters" class="col-sm-4">MONSTERS:</label>
+					<input id="lblMonsters" type="text" class="without" class="col-sm-4" />
+				</div>
+				<div class="row" id="ball5Setting">
+					<label for="lblBall5" class="col-sm-4">5 POINTS:</label>
+					<input id="lblBall5" value="#c7ffd8" type="color" class="without" class="col-sm-4" />
+				</div>
+				<div class="row" id="ball15Setting">
+					<label for="lblBall15" class="col-sm-4">15 POINTS:</label>
+					<input id="lblBall15" value="#98ded9" type="color" class="without" class="col-sm-4" />
+				</div>
+				<div class="row" id="ball25Setting">
+					<label for="lblBall25" class="col-sm-4">25 POINTS:</label>
+					<input id="lblBall25" value="#161d6f" type="color" class="without" class="col-sm-4" />
+				</div>
+			</div>
+			<br>
+			<div id="newGame">
+				<button1 onclick="setting()" type="submit"> <B>New game</B></button1>
+			</div>
+			<br>
+			<br>
 		</div>
 		<div id="game">
-			<canvas id="canvas" height="600" width="600"></canvas>
+			<p>
+				<label for="lblScore">SCORE:</label>
+				<input id="lblScore" type="text" size="5" class="without1" />
+				<label for="lblTime">TIME:</label>
+				<input id="lblTime" type="text" size="5" class="without1" />
+				<label for="lblLives">LIVES:</label>
+				<label id="lblLives"> </label>
+			</p>
+			<!--<input id="lblLifes" value="" type="text" size="5" class="without" class="col-sm-3"/></p>-->
+			<canvas id="canvas" height="590" width="800" style="width:50%;"></canvas>
 		</div>
-	</body>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+
+	<footer>
+		<span class="foot"><h3><b>Contact us:</b></h3>
+			<b>Saja:</b>
+			<a href="mailto:sajaabu@post.bgu.ac.il"><i class="fa fa-envelope"></i></a>
+			<a href="https://www.facebook.com/saja.ib98" class="fa fa-facebook"></a>
+			<a href="https://www.instagram.com/sa.ib98/" class="fa fa-instagram"></a>
+			<b>Orel:</b>
+			<a href="mailto:orelre@post.bgu.ac.il"><i class="fa fa-envelope"></i></a>
+			<a href="https://www.facebook.com/OrelRevach" class="fa fa-facebook"></a>
+			<a href="https://www.instagram.com/OrelRevach" class="fa fa-instagram"></a>
+		</span>
+	</footer>
+
+
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script src="javascript/functions.js"></script>
+	<script src="javascript/gameSettings.js"></script>
+</body>
+
 </html>
